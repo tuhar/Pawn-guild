@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Pawn guild</title>
+	<meta charset="utf-8">
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+	<script src="./js/pawn.js"></script>
+</head>
+<body>
+	<div ng-app="pawnGuild" ng-controller="membersController">
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Race</th>
+					<th>Class</th>
+					<th>Level</th>
+					<th>Rank</th>
+					<th>Spec</th>
+				</tr>
+			<tbody>
+				<tr ng-repeat="member in members">
+					<td>{{member.name}}</td>
+					<td><img width="28" height="28" src="{{member.race}}" /></td>
+					<td><img width="28" height="28" src="{{member.class}}" /></td>
+					<td>{{member.level}}</td>
+					<td>{{member.rank}}</td>
+					<td>{{member.spec}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
