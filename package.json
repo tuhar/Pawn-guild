@@ -1,0 +1,20 @@
+{
+  "name": "Pawn-guild",
+  "description": "Web page for guild Pawn",
+  "author": "tuhar <tuharik@gmail.com>",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tuhar/Pawn-guild"
+  },
+  "dependencies": {
+    "express": "4.14.x",
+    "body-parser": "1.5.x",
+    "cookie-parser": "1.4.x",
+    "multer": "1.2.x",
+    "mongoose": "^4.6.0"
+  },
+  "license": "MIT"
+}
