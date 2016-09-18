@@ -1,25 +1,51 @@
-var app = angular.module('pawnGuild', []);
+var app = angular.module('pawnGuild', ['ui.router']);
+
+app.config(function($stateProvider, $urlRouterProvider) {
+   $stateProvider
+   .state('home', {
+      url: '/home',
+      templateUrl: 'home.html'
+   })
+   .state('roster', {
+      url: '/roster',
+      templateUrl: 'roster.html',
+      controller: 'membersController'
+   })
+   .state('aboutUs', {
+      url: '/aboutUs',
+      templateUrl: 'aboutUs.html'
+   })
+   .state('recruitment', {
+      url: '/recruitment',
+      templateUrl: 'recruitment.html'
+   })
+   .state('application', {
+      url: '/application',
+      templateUrl: 'application.html'
+   });
+   $urlRouterProvider.otherwise('/home');
+});
 
 app.controller('membersController', function($scope, $http){
 	var url = "https://eu.api.battle.net/wow/guild/Silvermoon/Pawn?fields=members&locale=en_US&apikey=kexbm26am4k2dh6zjkkvzhxpe8u9wx6e&jsonp=JSON_CALLBACK";
 	$http.jsonp(url)
 		.success(response => {
 			$scope.members = response.members
-				.filter(memberRaw => memberRaw.rank < 7)
+				.filter(memberRaw => memberRaw.rank !== 2 && memberRaw.rank < 5)
+				.sort((a,b) => {
+               return a.rank < b.rank ? -1 :
+            	   (a.rank > b.rank ? 1 : (a.character.name < b.character.name ? -1 : 1))
+            })
 				.map(memberRaw => {
 					var member = {
 					name : memberRaw.character.name,
 					race : "images/Races/" + Races[memberRaw.character.race] + "_" + Gender[memberRaw.character.gender] +".png",
 					class : "images/Classes/" + Class[memberRaw.character.class] + ".png",
 					level : memberRaw.character.level,
-					rank : memberRaw.rank,
+					rank : GuildRanks[memberRaw.rank],
 					spec : memberRaw.character.spec ? memberRaw.character.spec.name : "-"
 					}
 					return member;
-				})
-				.sort((a,b) => {
-					return a.rank < b.rank ? -1 : 
-						(a.rank > b.rank ? 1 : (a.name < b.name ? -1 : 1))
 				})
 		});
 });
@@ -45,7 +71,7 @@ GuildRanks = {
     0: 'Guild Master',
     1: 'Officer',
     3: 'Core Raider',
-    4: 'Core Raider'
+    4: 'Core Raider',
 };
 Class = {
     1: 'Warrior',
@@ -59,7 +85,7 @@ Class = {
     9: 'Warlock',
     10: 'Monk',
     11: 'Druid',
-	 12: 'DemonHunter'
+    12: 'DemonHunter'
 };
 Gender = {
     0: 'Male',

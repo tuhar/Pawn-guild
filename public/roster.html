@@ -1,0 +1,23 @@
+<div class="white">
+   <table class="table table-condensed">
+      <thead>
+      <tr>
+         <th>Name</th>
+         <th>Race</th>
+         <th>Class</th>
+         <th>Level</th>
+         <th>Rank</th>
+         <th>Spec</th>
+      </tr>
+      <tbody>
+      <tr ng-repeat="member in members">
+         <td>{{member.name}}</td>
+         <td><img width="28" height="28" src="{{member.race}}"/></td>
+         <td><img width="28" height="28" src="{{member.class}}"/></td>
+         <td>{{member.level}}</td>
+         <td>{{member.rank}}</td>
+         <td>{{member.spec}}</td>
+      </tr>
+      </tbody>
+   </table>
+</div>
