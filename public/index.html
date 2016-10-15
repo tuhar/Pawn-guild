@@ -4,11 +4,14 @@
    <meta charset="utf-8">
    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
    <link rel="stylesheet" href="css/style.css">
+   <script src="https://use.fontawesome.com/ea4906dad2.js"></script>
    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
    <script src="js/pawn.js"></script>
+   <script src="js/controllers/membersController.js"></script>
+   <script src="js/controllers/applicationsController.js"></script>
 </head>
-<body class="backgroundColor" ng-app="pawnGuild">
+<body class="background-color" ng-app="pawnGuild">
 <div class="container">
    <div class="row">
       <div class="col-md-12 black">
@@ -20,7 +23,8 @@
       <li role="presentation"><a ui-sref="roster">Roster</a></li>
       <li role="presentation"><a ui-sref="aboutUs">About Us</a></li>
       <li role="presentation"><a ui-sref="recruitment">Recruitment</a></li>
-      <li role="presentation"><a ui-sref="application">Apply</a></li>
+      <li role="presentation"><a ui-sref="apply">Apply</a></li>
+      <li role="presentation"><a ui-sref="applications">Applications</a></li>
    </ul>
    <div class="row white">
       <div class="col-md-12">

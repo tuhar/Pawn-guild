@@ -1,0 +1,20 @@
+<div>
+   <h1>Applications</h1>
+      <div ng-repeat="application in applications">
+         <h3>{{application.title}} <i title="delete application" class="fa fa-times clickable" ng-click="deleteApplication($index)"></i></h3>
+         <pre class="angular-with-newlines">{{application.text}}</pre>
+         <div>
+            <h4>Comments</h4>
+            <div ng-repeat="comment in application.comments">
+               <span>{{comment.author}}</span>
+               <span title="delete comment" class="clickable" ng-click="deleteComment(comment, $parent.$index)"><i class="fa fa-times"></i></span>
+               <pre class="angular-with-newlines">{{comment.body}}</pre>
+            </div>
+         </div>
+         <form>
+            <textarea ng-model="application.newComment"></textarea>
+            <button ng-click="addComment($index)">Add comment</button>
+         </form>
+      </div>
+   </div>
+</div>

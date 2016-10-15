@@ -1,11 +1,21 @@
-.black{
+.black {
 	text-align:center;
 	background-color:black;
 }
-.white{
+.white {
 	background-color:white;
 }
 
-.backgroundColor{
+.background-color {
 	background-color:#ededed;
+}
+
+.angular-with-newlines {
+	white-space: pre-wrap;
+	background-color: white;
+	font-family: inherit;
+}
+
+.clickable {
+   cursor: pointer;
 }
